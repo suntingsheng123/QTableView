@@ -10,10 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    tfloatspindelegate.cpp \
+    tspinboxdelegate.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    tfloatspindelegate.h \
+    tspinboxdelegate.h
 
 FORMS += \
     mainwindow.ui
