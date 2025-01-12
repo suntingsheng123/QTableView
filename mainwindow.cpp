@@ -4,6 +4,10 @@
 #include<QStandardItemModel>
 #include<QItemSelectionModel>
 #include<QFileDialog>
+#include<tspinboxdelegate.h>
+#include<tfloatspindelegate.h>
+#include<tcomboxdelegate.h>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,6 +33,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectItems);
     connect(m_selection,&QItemSelectionModel::currentChanged,
             this,&MainWindow::do_currentChanged);
+
+    intSpinDelegate =new TSpinBoxDelegate(this);
+    ui->tableView->setItemDelegateForColumn(0,intSpinDelegate);
+
+    floatSpinDelegate =new TFloatSpinDelegate(this);
+    ui->tableView->setItemDelegateForColumn(1,floatSpinDelegate);
+    ui->tableView->setItemDelegateForColumn(2,floatSpinDelegate);
+    ui->tableView->setItemDelegateForColumn(3,floatSpinDelegate);
+
+    comboDelegate=new TComboxDelegate(this);
+    QStringList strList;
+    strList<<"优"<<"良"<<"中"<<"差";
+    comboDelegate->setItem(strList,false);
+    ui->tableView->setItemDelegateForColumn(4,comboDelegate);
+
 }
 void MainWindow::do_currentChanged(const QModelIndex &current, const QModelIndex &previous)
 {

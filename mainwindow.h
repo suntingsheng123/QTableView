@@ -6,6 +6,9 @@
 class QLabel;
 class QStandardItemModel;
 class QItemSelectionModel;
+class TFloatSpinDelegate;
+class TSpinBoxDelegate;
+class TComboxDelegate;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,6 +20,10 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 private:
+
+    TFloatSpinDelegate *floatSpinDelegate;
+    TSpinBoxDelegate *intSpinDelegate;
+    TComboxDelegate *comboDelegate;
     QLabel *labelCurFile;
     QLabel *labelCellPos;
     QLabel *labelCellText;

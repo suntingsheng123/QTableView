@@ -10,6 +10,7 @@ QWidget *TSpinBoxDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
     Q_UNUSED(option);
     Q_UNUSED(index);
     QSpinBox *editor= new QSpinBox(parent);
+    editor->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
     editor->setFrame(false);
     editor->setMinimum(0);
     editor->setMaximum(500000);
@@ -19,6 +20,7 @@ QWidget *TSpinBoxDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
 void TSpinBoxDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     QSpinBox *spinBox=dynamic_cast<QSpinBox*>(editor);
+
     int value=index.model()->data(index,Qt::EditRole).toInt();
     spinBox->setValue(value);
 
