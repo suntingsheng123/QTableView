@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    tcomboxdelegate.cpp \
     tfloatspindelegate.cpp \
     tspinboxdelegate.cpp
 
 HEADERS += \
     mainwindow.h \
+    tcomboxdelegate.h \
     tfloatspindelegate.h \
     tspinboxdelegate.h
 
